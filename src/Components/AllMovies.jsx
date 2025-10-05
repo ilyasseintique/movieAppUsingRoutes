@@ -178,7 +178,7 @@ function Form({ formData, setFormData, appendobj, movies }) {
       />
       <input
         type="text"
-        placeholder= " triller URL"
+        placeholder= "  trailer URL"
         className="w-120 h-8 text-black"
         value={formData.iframe}
         onChange={(e) => setFormData({ ...formData, iframe: e.target.value })}
