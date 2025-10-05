@@ -1,10 +1,13 @@
 import React,{useState} from "react";
 import AllMovies from "./AllMovies";
-        
+import { Route,Routes } from 'react-router';
+       
 export default function Filter(){
     const [value,setValue] = useState('')
+
     return (
-        <>
+        <>    
+        
             <form  style={{position:'relative',left:'80%',marginTop:10}} >
                 <label htmlFor="fitler" >
                     <input 

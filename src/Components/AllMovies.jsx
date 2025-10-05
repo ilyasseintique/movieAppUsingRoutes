@@ -90,6 +90,7 @@
 import React, { useState } from 'react';
 import Movies from './Films';
 import '../App.css';
+import { Route, Routes, BrowserRouter, useNavigate, Link } from 'react-router-dom';
 
 export default function AllMovies({ value }) {
   const [newMovie, setNewMovie] = useState(Movies);
@@ -189,27 +190,30 @@ function MovieCard({ movie }) {
   const [details, setDetails] = useState("");
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden w-72 hover:scale-105 transition-transform duration-300">
-      <img
-        src={movie.posterURL}
-        alt={movie.title}
-        className="w-full h-96 object-cover"
-      />
-      <div className="p-4">
-        <h2 className="text-xl font-bold text-gray-800">{movie.title}</h2>
-        <p className="text-gray-600 text-sm mt-2 line-clamp-3">{details}</p>
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-yellow-500 font-semibold">
-            ⭐ {movie.rating}
-          </span>
-          <button
-            onClick={() => setDetails(details ? "" : movie.description)}
-            className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 text-sm"
-          >
-            {details ? "Hide" : "Details"}
-          </button>
+    <Link to={`/movie/${movie.id}`}>
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden w-72 hover:scale-105 transition-transform duration-300">
+          <img
+            src={movie.posterURL}
+            alt={movie.title}
+            className="w-full h-96 object-cover"
+          />
+          <div className="p-4">
+            <h2 className="text-xl font-bold text-gray-800">{movie.title}</h2>
+            <p className="text-gray-600 text-sm mt-2 line-clamp-3">{details}</p>
+            <div className="flex items-center justify-between mt-4">
+              <span className="text-yellow-500 font-semibold">
+                ⭐ {movie.rating}
+              </span>
+              <button
+                onClick={() => setDetails(details ? "" : movie.description)}
+                className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 text-sm"
+              >
+                {details ? "Hide" : "Details"}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+    </Link>
+
   );
 }
