@@ -136,13 +136,13 @@ export default function AllMovies({ value }) {
       </div>
 
       {!toggling && (
-        <Form formData={formData} setFormData={setFormData} appendobj={appendobj} />
+        <Form formData={formData} setFormData={setFormData} appendobj={appendobj} movies={newMovie} />
       )}
     </>
   );
 }
 
-function Form({ formData, setFormData, appendobj }) {
+function Form({ formData, setFormData, appendobj, movies }) {
   return (
     <form
       className="flex flex-col gap-5 relative left-1/2 bg-gray-400 w-120 mb-10 pb-5"
@@ -150,31 +150,45 @@ function Form({ formData, setFormData, appendobj }) {
     >
       <input
         type="text"
-        placeholder="title"
+        placeholder=" title"
         className="w-120 h-8 text-black"
         value={formData.title}
         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
       />
       <input
         type="text"
-        placeholder="posterURL"
+        placeholder=" posterURL"
         className="w-120 h-8 text-black"
         value={formData.posterURL}
         onChange={(e) => setFormData({ ...formData, posterURL: e.target.value })}
       />
       <input
         type="text"
-        placeholder="description"
+        placeholder=" description"
         className="w-120 h-8 text-black"
         value={formData.description}
         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
       />
       <input
         type="text"
-        placeholder="rating"
+        placeholder=" rating"
         className="w-120 h-8 text-black"
         value={formData.rating}
         onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder= " triller URL"
+        className="w-120 h-8 text-black"
+        value={formData.iframe}
+        onChange={(e) => setFormData({ ...formData, iframe: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder= {' put: '+ (movies.length+1)}
+        className="w-120 h-8 text-black"
+        value={formData.id}
+        onChange={(e) => setFormData({ ...formData, id: e.target.value })}
       />
       <button
         type="submit"
